@@ -1,7 +1,7 @@
-import iphoneImg from "@/assets/guideImg/iphoneadd.jpeg";
-import iphoneImg2 from "@/assets/guideImg/iphoneadd2.jpeg";
-import galaxyguide from "@/assets/guideImg/galaxyguide.jpg";
-import galaxyguide2 from "@/assets/guideImg/galaxyguide2.jpg";
+import iphoneImg from "@/assets/guideImg/iphoneguide.jpeg";
+import iphoneImg2 from "@/assets/guideImg/iphoneguide2.jpeg";
+import galaxyguide from "@/assets/guideImg/androidguide.jpeg";
+import galaxyguide2 from "@/assets/guideImg/androidguide2.jpeg";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft } from "lucide-react";
@@ -33,6 +33,10 @@ const GUIDE_DATA = {
             공유 버튼 클릭 후 아래로 스크롤 하여
             <span className="font-semibold text-blue-700"> 홈 화면에 추가</span> 클릭
           </p>
+          <p>
+            ※ 반드시 <span className="font-bold text-red-400">메인 페이지</span>에서 다운로드를
+            진행하셔야 합니다.
+          </p>
           <img src={iphoneImg2} alt="아이폰 가이드 2" className="w-full rounded-md" />
         </div>
       ),
@@ -61,6 +65,10 @@ const GUIDE_DATA = {
           <p>
             <span className="font-semibold text-blue-700">홈 화면에 추가</span> 또는
             <span className="font-semibold"> 웹 어플리케이션 다운로드</span> 클릭
+          </p>
+          <p>
+            ※ 반드시 <span className="font-bold text-red-400">메인 페이지</span>에서 다운로드를
+            진행하셔야 합니다.
           </p>
           <img src={galaxyguide2} alt="갤럭시 가이드 2" className="w-full rounded-md" />
           <p className="text-sm text-destructive">
