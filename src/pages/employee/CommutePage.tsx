@@ -55,7 +55,57 @@ export default function CommutePage() {
 
   if (isLoading) return <CommuteLoading />;
 
-  if (error) return <CommuteError error={error} />;
+  if (error)
+    return (
+      <>
+        <CommuteError error={error}>
+          <div className="space-y-4 rounded-md border border-red-300 bg-red-50 p-4 text-left text-sm text-red-700">
+            <div>
+              <p className="mb-2 font-medium">
+                현재 위치 정보 접근이 차단되어 출근 처리가 불가능합니다. 아래 안내에 따라 위치
+                권한을 허용해 주세요.
+              </p>
+
+              <p className="mb-1 font-semibold">📱 iPhone (iOS, Safari 기반)</p>
+              <ul className="mb-3 list-disc pl-5">
+                <li>
+                  사파리 앱 실행 → 주소창 왼쪽 <strong>「가로줄 아이콘 (aA)」</strong> 탭
+                </li>
+                <li>
+                  「웹사이트 설정」 → 「위치」를 <strong>허용</strong>으로 변경
+                </li>
+                <li>
+                  또는: 설정 → Safari → 위치 → <strong>“웹사이트마다 물어보기”</strong>로 설정
+                </li>
+              </ul>
+
+              <p className="mb-1 font-semibold">📱 Android (PWA 또는 크롬 기반)</p>
+              <ul className="mb-3 list-disc pl-5">
+                <li>홈 화면에 설치한 앱 실행 후</li>
+                <li>
+                  오른쪽 상단 <strong>「⋮」 (더보기)</strong> 메뉴 → <strong>사이트 설정</strong>{" "}
+                  선택
+                </li>
+                <li>
+                  「위치」 → <strong>허용</strong>으로 변경
+                </li>
+                <li>또는 크롬 앱 실행 → 주소창에 사이트 입력 → 🔒 아이콘 탭 → 위치 권한 허용</li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => window.location.reload()}
+                className="rounded bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
+              >
+                새로고침
+              </button>
+            </div>
+          </div>
+        </CommuteError>
+        {status && <OutWorkingModal isCheckout={isCheckoutMode} status={status} />}
+      </>
+    );
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 px-4">
