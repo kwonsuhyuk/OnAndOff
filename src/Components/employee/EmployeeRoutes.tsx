@@ -5,7 +5,7 @@ import EmployeeMainContent from "@/components/employee/EmployeeMainContent";
 import ShowCalendarPage from "@/pages/employee/ShowCalendarPage";
 import MyVacationPage from "@/pages/employee/MyVacationPage";
 import EmployeeMenuPage from "@/pages/employee/EmployeeMenuPage";
-import AppGuidePage from "@/pages/employee/AppGuidePage";
+import AppGuidePage from "@/pages/AppGuidePage";
 import CommutePage from "@/pages/employee/CommutePage";
 import NoticePage from "@/pages/manager/NoticePage";
 import AboutPage from "@/pages/common/AboutPage";
@@ -25,7 +25,7 @@ const EmployeeRoutes: RouteObject[] = [
     path: "",
     Component: () => <EmployeeLayout type="sub" />,
     children: [
-      { path: EMPLOYEE_ROUTES.APP_GUIDE.substring(1), element: <AppGuidePage /> },
+      // { path: EMPLOYEE_ROUTES.APP_GUIDE.substring(1), element: <AppGuidePage /> },
       { path: EMPLOYEE_ROUTES.COMMUTE.substring(1), element: <CommutePage /> },
       { path: COMMON_ROUTES.NOTICE.substring(1), element: <NoticePage /> },
       { path: COMMON_ROUTES.ABOUT.substring(1), element: <AboutPage /> },
