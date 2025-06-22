@@ -85,7 +85,7 @@ export const EMPLOYEE_SUB_MENUS = (companyCode: string) => [
   {
     icon: <BookOpenCheck className="h-5 w-5 text-primary" />,
     label: "다운로드 안내",
-    path: `/${companyCode}/employee/appguide`,
+    path: `/downloadguide`,
   },
   {
     icon: <BriefcaseBusiness className="h-5 w-5 text-primary" />,
