@@ -101,7 +101,7 @@ const AppGuidePage = () => {
           <ArrowLeft className="h-4 w-4" />
           <span>뒤로가기</span>
         </button>
-        On & Off 앱 다운로드 가이드
+        On & Off 다운로드 하기
       </h1>
 
       <p className="mb-4 text-center text-gray-600 dark:text-gray-300">

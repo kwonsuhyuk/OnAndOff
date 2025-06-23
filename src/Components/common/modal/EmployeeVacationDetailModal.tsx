@@ -2,7 +2,7 @@ import React from "react";
 import { Calendar, User, BadgeCheck, FileText, PlaneTakeoff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TVacationRequest } from "@/model/types/vacation.type";
-import { VACATION_STATUS_CLASSES, VACATION_TYPE_COLORS } from "@/constants/\bvacation";
+import { VACATION_STATUS_CLASSES, VACATION_TYPE_CLASS_MAP } from "@/constants/\bvacation";
 import DetailModal from "@/components/common/modal/commonModalLayout/DetailModal";
 
 interface TEmployeeVacationDetailModalProps {
@@ -24,7 +24,8 @@ const EmployeeVacationDetailModal = ({
   isSameDay,
   label,
 }: TEmployeeVacationDetailModalProps) => {
-  const badgeTypeClass = VACATION_TYPE_COLORS[request.vacationType] || "bg-gray-400";
+  const badgeTypeClass =
+    VACATION_TYPE_CLASS_MAP[request.vacationType] ?? "bg-gray-400 text-white dark:bg-gray-500";
   const badgeStatusClass = VACATION_STATUS_CLASSES[label] || "bg-gray-400";
 
   return (
@@ -35,45 +36,63 @@ const EmployeeVacationDetailModal = ({
       title={
         <div className="flex items-center gap-2">
           <PlaneTakeoff className="h-5 w-5 text-primary dark:text-white" />
-          <span className="text-base font-bold">휴가 상세 정보</span>
+          <span className="text-base font-bold text-gray-800 dark:text-white">휴가 상세 정보</span>
           <span
-            className={`mb-0.5 rounded-full px-3 py-0.5 text-xs font-semibold text-white ${badgeStatusClass}`}
+            className={`rounded-full px-3 py-0.5 text-xs font-semibold text-white ${badgeStatusClass}`}
           >
             {label}
           </span>
         </div>
       }
     >
-      <div className="mt-6 space-y-4 text-sm text-foreground dark:text-gray-900">
+      <div className="mt-6 space-y-4 text-sm text-gray-800 dark:text-white">
+        {/* 이름 */}
         <div className="flex items-center gap-2">
-          <User className="h-4 w-4 text-muted-foreground" />
-          <span className="font-medium">이름 : </span> {request.requester.name}
+          <User className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+          <span className="text-gray-500 dark:text-gray-400">이름</span>
+          <span className="ml-auto font-medium text-gray-800 dark:text-white">
+            {request.requester.name}
+          </span>
         </div>
 
+        {/* 직무 */}
         <div className="flex items-center gap-2">
-          <BadgeCheck className="h-4 w-4 text-muted-foreground" />
-          <span className="font-medium">직무 : </span> {request.requester.jobName}
+          <BadgeCheck className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+          <span className="text-gray-500 dark:text-gray-400">직무</span>
+          <span className="ml-auto font-medium text-gray-800 dark:text-white">
+            {request.requester.jobName}
+          </span>
         </div>
 
-        <div className="text-sm">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-4 break-words">
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-            <span className="font-medium">기간 : </span>
+        {/* 기간 */}
 
-            <div className="flex flex-wrap items-center gap-2">
-              <span>{isSameDay ? start : `${start} ~ ${end}`}</span>
-              <span className="rounded-full border-2 border-solid border-blue-500 px-3 text-xs font-extrabold text-blue-500">
-                {request.vacationType}
-              </span>
-            </div>
+        <div className="flex items-start justify-between gap-2">
+          {/* 아이콘 + 텍스트 */}
+          <div className="flex shrink-0 items-center gap-2">
+            <Calendar className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+            <span className="text-gray-500 dark:text-gray-400">기간</span>
+          </div>
+
+          {/* 날짜 + 유형 */}
+          <div className="flex flex-col items-end gap-2 text-right">
+            <span className="font-medium text-gray-800 dark:text-white">
+              {isSameDay ? start : `${start} ~ ${end}`}
+            </span>
+            <span
+              className={`rounded-full border border-solid px-3 py-0.5 text-xs font-semibold ${badgeTypeClass}`}
+            >
+              {request.vacationType}
+            </span>
           </div>
         </div>
 
+        {/* 사유 */}
         <div className="flex items-center gap-2">
-          <FileText className="h-4 w-4 text-muted-foreground" />
-          <div>
-            <span className="font-medium">사유 : </span> {request.reason}
-          </div>
+          <FileText className="mt-0.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
+          <span className="text-gray-500 dark:text-gray-400">사유</span>
+          <span className="ml-auto break-words text-right font-medium text-gray-800 dark:text-white">
+            {request.reason?.trim() || "-"}
+          </span>
         </div>
       </div>
     </DetailModal>
