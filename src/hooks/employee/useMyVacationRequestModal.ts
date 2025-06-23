@@ -84,6 +84,7 @@ export const useMyVacationRequestModal = (
     toast({
       title: "휴가 요청 완료",
       description: "휴가 요청이 정상적으로 등록되었습니다.",
+      variant: "success",
     });
     onClose();
   };
