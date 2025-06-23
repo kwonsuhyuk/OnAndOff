@@ -33,7 +33,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         "fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white/90 p-6 shadow-xl transition-all duration-300 ease-out dark:bg-gray-900/90 dark:shadow-gray-800",
-        "dark:bg-white-card-bg dark:text-white-text dark:shadow-lg",
+        "dark:bg-white-card-bg dark:text-white-text dark:shadow-none",
         "data-[state=closed]:scale-95 data-[state=open]:scale-100 data-[state=closed]:opacity-0 data-[state=open]:opacity-100",
         className,
       )}

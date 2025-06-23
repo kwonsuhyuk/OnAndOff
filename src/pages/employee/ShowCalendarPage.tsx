@@ -1,10 +1,5 @@
-// import { useMatch } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useTour } from "@/hooks/use-tour";
-import { CALENDAR_STEPS } from "@/constants/tourStep";
-// import { useUserStore } from "@/store/user.store";
 import MyCalendar from "@/components/common/calendar/MyCalendar";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useTour } from "@/hooks/use-tour";
 import { Card, CardContent } from "@/components/ui/card";
 import Seo from "@/components/Seo";
 import { useShowCalendar } from "@/hooks/employee/useShowCalendar";
