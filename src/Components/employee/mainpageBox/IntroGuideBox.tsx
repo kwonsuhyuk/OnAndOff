@@ -50,14 +50,6 @@ const IntroGuideBox = () => {
 
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
           <Button
-            variant="secondary"
-            className="h-9 w-full flex-1 bg-white text-blue-700 hover:bg-blue-100 dark:text-blue-800"
-            onClick={handleNavigate}
-          >
-            다운로드 안내 보기
-          </Button>
-
-          <Button
             className="h-9 w-full flex-1 border-white text-white hover:bg-white hover:text-blue-600 dark:bg-black dark:hover:bg-white-bg"
             onClick={() => navigate("/commuteguide")}
           >

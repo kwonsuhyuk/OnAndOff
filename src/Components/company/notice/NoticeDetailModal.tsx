@@ -27,8 +27,8 @@ const NoticeModal = ({ onClose, notice }: NoticeModalProps) => {
       icon={<StickyNote className="h-5 w-5" />}
       maxWidthClass="max-w-md"
     >
-      <div className="min-h-[300px] rounded-md border border-gray-200 bg-white p-4 shadow-sm">
-        <div className="mb-3 flex items-start justify-between">
+      <div className="min-h-[300px] rounded-md border border-gray-200 bg-white p-4 shadow-sm dark:bg-dark-card-bg">
+        <div className="mb-3 flex items-center justify-between">
           <p className="text-md flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
             {notice.noticeType === "중요" && (
               <span className="font-semibold text-red-500">[중요]</span>

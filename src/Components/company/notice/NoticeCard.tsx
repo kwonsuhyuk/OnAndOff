@@ -22,7 +22,7 @@ const NoticeCard = ({
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer self-start rounded-md border border-white-border bg-white-card-bg p-5 shadow-md transition-all duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-dark-border dark:bg-dark-card-bg"
+      className="cursor-pointer self-start rounded-md border border-white-border bg-white-card-bg p-5 shadow-md transition-all duration-200 dark:border-dark-border dark:bg-dark-card-bg"
       data-tour="notice-2"
     >
       <div className="flex items-start justify-between">
