@@ -116,14 +116,14 @@ const OutworkRequestModal = ({ open, onClose, pendingOutworkList }: OutworkReque
                 <div className="mt-3 flex justify-end gap-2">
                   <button
                     onClick={() => handleApprove(req)}
-                    className="flex items-center gap-1 rounded-md border border-emerald-500 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-100 dark:bg-transparent dark:text-emerald-300"
+                    className="flex items-center gap-2 rounded-md border border-emerald-500 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700 hover:bg-emerald-100 dark:bg-transparent dark:text-emerald-300"
                   >
                     <Check className="h-4 w-4" />
                     수락
                   </button>
                   <button
                     onClick={() => handleReject(req)}
-                    className="flex items-center gap-1 rounded-md border border-red-500 bg-red-50 px-3 py-1 text-xs font-medium text-red-600 hover:bg-red-100 dark:bg-transparent dark:text-red-300"
+                    className="flex items-center gap-2 rounded-md border border-red-500 bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100 dark:bg-transparent dark:text-red-300"
                   >
                     <X className="h-4 w-4" />
                     거절

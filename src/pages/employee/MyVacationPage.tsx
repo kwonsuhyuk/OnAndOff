@@ -59,8 +59,6 @@ const MyVacationPage = () => {
     }
   };
 
-  // const year = date.getFullYear();
-
   const handleYearChange = (direction: "prev" | "next") => {
     setDate(prev => {
       const newDate = new Date(prev);

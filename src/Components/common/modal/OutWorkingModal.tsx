@@ -92,7 +92,7 @@ const OutWorkingModal = ({ isCheckout = false, status }: OutWorkingModalProps) =
         <div className="flex justify-end gap-2">
           <Button
             variant={"outline"}
-            className="bg-gray-100 text-gray-800 dark:bg-gray-100"
+            className="bg-gray-100 text-gray-800 dark:bg-gray-100 dark:text-gray-800"
             onClick={() => setOpen(false)}
             disabled={isSubmitting}
           >

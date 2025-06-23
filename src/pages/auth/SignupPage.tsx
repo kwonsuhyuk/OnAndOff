@@ -49,8 +49,8 @@ const SignupPage = () => {
       />
 
       <div className="mt-10">
-        <div className="mx-auto max-w-md px-4">
-          <div className="flex flex-col items-center justify-center">
+        <div className="mx-auto max-w-md p-4">
+          <div className="flex flex-col items-center justify-center p-6">
             <AuthHeader icon={LockIcon} title="회원가입" />
             <Form {...form}>
               <form onSubmit={onSubmit} className="mt-4 w-full space-y-6">

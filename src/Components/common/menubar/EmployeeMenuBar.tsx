@@ -58,7 +58,7 @@ const EmployeeMenuBar = () => {
   const companyCode = pathname.split("/")[1];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 z-50 flex h-14 w-full max-w-screen-sm -translate-x-1/2 border-t border-gray-200 bg-white-card-bg dark:border-gray-600 dark:bg-dark-bg">
+    <nav className="fixed bottom-0 left-1/2 z-50 flex h-16 w-full max-w-screen-sm -translate-x-1/2 border-t border-gray-200 bg-white-card-bg dark:border-gray-600 dark:bg-dark-bg">
       {navItems.map(item => {
         const pathMatch = pathname.includes(`/${companyCode}/${item.path}`);
         return (

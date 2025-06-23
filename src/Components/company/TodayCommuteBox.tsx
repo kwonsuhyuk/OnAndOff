@@ -251,7 +251,7 @@ export const TodayCommuteBox = () => {
                   );
                 })
               ) : (
-                <li className="text-sm text-gray-500 dark:text-gray-400">
+                <li className="pb-5 text-sm text-gray-500 dark:text-gray-400 md:pb-0">
                   {title}인 직원이 없습니다.
                 </li>
               )}
