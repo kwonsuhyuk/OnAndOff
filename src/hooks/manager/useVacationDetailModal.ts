@@ -32,7 +32,6 @@ export const useVacationDetailModal = (
     toast({
       title: "승인 처리 완료",
       description: `${request.requester.name}님의 휴가 요청을 승인했습니다.`,
-      variant: "destructive",
     });
     onClose();
   };

@@ -10,6 +10,7 @@ import {
   Info,
   Megaphone,
   Settings,
+  StickyNote,
 } from "lucide-react";
 
 export interface MenuButtonConfig {
@@ -92,7 +93,11 @@ export const EMPLOYEE_SUB_MENUS = (companyCode: string) => [
     label: "출퇴근 방법 안내",
     path: `/commuteguide`,
   },
-
+  {
+    icon: <StickyNote className="h-5 w-5 text-primary" />,
+    label: "서비스 업데이트 노트",
+    path: `/devnotes`,
+  },
   {
     icon: <Info className="h-5 w-5 text-primary" />,
     label: "만든 사람들",

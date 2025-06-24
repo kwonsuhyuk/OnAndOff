@@ -23,11 +23,30 @@ export function DateRangePicker({
   vacationType: string;
   handleDateChange: (range: DateRange | undefined) => void;
 }) {
+  const [open, setOpen] = React.useState(false);
   const isMobile = window.innerWidth <= 640;
+
+  const handleSelect = (range: DateRange | undefined) => {
+    handleDateChange(range);
+
+    if (vacationType === "반차" && range?.from) {
+      setOpen(false);
+    }
+
+    // 범위 선택: from과 to가 모두 있고, 서로 다른 날짜일 경우만 닫힘
+    if (
+      vacationType !== "반차" &&
+      range?.from &&
+      range?.to &&
+      format(range.from, "yyyy-MM-dd") !== format(range.to, "yyyy-MM-dd")
+    ) {
+      setOpen(false);
+    }
+  };
 
   return (
     <div className={cn("grid gap-2", className)}>
-      <Popover>
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             id="date"
@@ -62,7 +81,7 @@ export function DateRangePicker({
               mode="single"
               defaultMonth={date?.from}
               selected={date?.from}
-              onSelect={day => handleDateChange(day ? { from: day, to: day } : undefined)}
+              onSelect={day => handleSelect(day ? { from: day, to: day } : undefined)}
               numberOfMonths={1}
               toDate={toDate}
             />
@@ -72,7 +91,7 @@ export function DateRangePicker({
               mode="range"
               defaultMonth={date?.from}
               selected={date}
-              onSelect={handleDateChange}
+              onSelect={handleSelect}
               numberOfMonths={isMobile ? 1 : 2}
               toDate={toDate}
             />
