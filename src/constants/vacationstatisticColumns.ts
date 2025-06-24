@@ -28,7 +28,7 @@ export const generateColumns = (
   },
   {
     accessorKey: "specialLeaveCount",
-    header: "특별휴가",
+    header: "일반",
     cell: ({ row }) => {
       const value = row.original.specialLeaveCount ?? 0;
       return value === 0 ? "-" : value;

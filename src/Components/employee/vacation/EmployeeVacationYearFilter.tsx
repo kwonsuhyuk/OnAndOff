@@ -68,7 +68,7 @@ const EmployeeVacationYearFilter = ({
         <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-white/80">
           <span className="rounded-full bg-white/10 px-2 py-1">연차 {stats.annual}일</span>
           <span className="rounded-full bg-white/10 px-2 py-1">반차 {stats.half}일</span>
-          <span className="rounded-full bg-white/10 px-2 py-1">특별 {stats.special}일</span>
+          <span className="rounded-full bg-white/10 px-2 py-1">일반 {stats.special}일</span>
         </div>
         <div className="absolute bottom-0 right-2 text-[10px] text-[#e2e2e2]">
           ※ 반차는 0.5일로 계산됩니다
