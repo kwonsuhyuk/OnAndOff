@@ -13,12 +13,7 @@ const UpdateNodePage = () => {
     <div className="mx-auto max-w-2xl space-y-6 bg-white p-6 text-gray-800">
       {/* 헤더 */}
       <div className="space-y-4">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => navigate(-1)}
-          // className="dark:hover:bg-gray-100"
-        >
+        <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
           ← 뒤로가기
         </Button>
         <div>
