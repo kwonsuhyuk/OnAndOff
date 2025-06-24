@@ -95,7 +95,7 @@ const CommuteBox = () => {
                 <Button
                   onClick={() => navigate("/commuteguide")}
                   variant="outline"
-                  className="ml-auto w-full justify-center rounded-md border-yellow-500 text-sm font-semibold text-yellow-700 hover:bg-yellow-100 hover:text-yellow-800 dark:border-yellow-400 dark:text-yellow-300 dark:hover:bg-yellow-800 sm:w-auto"
+                  className="ml-auto w-full justify-center rounded-md border-yellow-500 text-sm font-semibold text-yellow-700 hover:bg-yellow-100 hover:text-yellow-800 dark:border-yellow-400 dark:bg-yellow-900 dark:text-yellow-300 dark:hover:bg-yellow-800 sm:w-auto"
                 >
                   안내 보기
                   <ArrowRight className="ml-1 h-4 w-4" />
