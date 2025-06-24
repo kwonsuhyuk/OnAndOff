@@ -57,7 +57,7 @@ export const useVacationChartData = (
             date,
             annual: daily.filter(d => d.type === "연차").length,
             half: daily.filter(d => d.type === "반차").length,
-            special: daily.filter(d => d.type === "특별").length,
+            special: daily.filter(d => d.type === "일반").length,
           };
         });
 
@@ -91,7 +91,7 @@ export const useVacationChartData = (
           summary[month] = {
             annual: flattened.filter(i => i.type === "연차").length,
             half: flattened.filter(i => i.type === "반차").length,
-            special: flattened.filter(i => i.type === "특별").length,
+            special: flattened.filter(i => i.type === "일반").length,
           };
         });
 

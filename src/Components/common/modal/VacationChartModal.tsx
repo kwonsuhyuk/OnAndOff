@@ -21,48 +21,52 @@ const VacationChartModal = ({ open, onClose, label, details }: IVacationDetailMo
     <DetailModal
       open={open}
       onClose={onClose}
-      title="휴가 상세 정보"
+      title="금일 휴가 상세 정보"
       subtitle={`${label}일`}
       icon={<CalendarDays className="h-5 w-5 text-gray-900 dark:text-white" />}
     >
-      {details.length > 0 ? (
-        details.map((item, idx) => (
-          <div
-            key={idx}
-            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-700"
-          >
-            <div className="mb-2 flex items-center justify-between">
-              <p className="text-base font-medium text-gray-800 dark:text-white">{item.name}</p>
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                  VACATION_TYPE_CLASS_MAP[item.vacationType] ??
-                  "bg-gray-100 text-gray-700 dark:bg-zinc-600 dark:text-gray-200"
-                }`}
-              >
-                {item.vacationType}
-              </span>
-            </div>
+      <div className="max-h-[400px] space-y-3 overflow-y-auto pr-1">
+        {details.length > 0 ? (
+          details.map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-700"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <p className="text-base font-medium text-gray-800 dark:text-white">{item.name}</p>
+                <span
+                  className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    VACATION_TYPE_CLASS_MAP[item.vacationType] ??
+                    "bg-gray-100 text-gray-700 dark:bg-zinc-600 dark:text-gray-200"
+                  }`}
+                >
+                  {item.vacationType}
+                </span>
+              </div>
 
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-              <CalendarDays className="h-4 w-4" />
-              <span className="font-medium">{format(new Date(item.startDate), "yyyy.MM.dd")}</span>
-              <span>~</span>
-              <span className="font-medium">{format(new Date(item.endDate), "yyyy.MM.dd")}</span>
-            </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                <CalendarDays className="h-4 w-4" />
+                <span className="font-medium">
+                  {format(new Date(item.startDate), "yyyy.MM.dd")}
+                </span>
+                <span>~</span>
+                <span className="font-medium">{format(new Date(item.endDate), "yyyy.MM.dd")}</span>
+              </div>
 
-            <div className="mt-2 flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-              <StickyNote className="h-4 w-4" />
-              <span className="text-gray-800 dark:text-white">
-                {item.reason?.trim() ? item.reason : "-"}
-              </span>
+              <div className="mt-2 flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                <StickyNote className="h-4 w-4" />
+                <span className="text-gray-800 dark:text-white">
+                  {item.reason?.trim() ? item.reason : "-"}
+                </span>
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p className="flex h-40 items-center justify-center text-center text-sm text-gray-500 dark:text-gray-400">
-          해당 날짜에 휴가 정보가 없습니다.
-        </p>
-      )}
+          ))
+        ) : (
+          <p className="flex h-40 items-center justify-center text-center text-sm text-gray-500 dark:text-gray-400">
+            해당 날짜에 휴가 정보가 없습니다.
+          </p>
+        )}
+      </div>
     </DetailModal>
   );
 };

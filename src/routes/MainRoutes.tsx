@@ -17,6 +17,7 @@ import IndexPage from "@/pages/common/IndexPage";
 import CommuteGuidePage from "@/pages/CommuteGuidePage";
 import OutworkGuidePage from "@/pages/OutworkGuidePage";
 import AppGuidePage from "@/pages/AppGuidePage";
+import UpdateNodePage from "@/pages/common/UpdateNodePage";
 
 export const MainRoutes = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const MainRoutes = createBrowserRouter([
           },
         ],
       },
-
+      { path: "/devnotes", Component: UpdateNodePage },
       { path: "/downloadguide", Component: AppGuidePage },
       { path: "/outworkguide", Component: OutworkGuidePage },
       { path: "/commuteguide", Component: CommuteGuidePage },

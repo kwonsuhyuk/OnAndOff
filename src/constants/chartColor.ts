@@ -8,7 +8,7 @@ export const CHART_COLORS = [
 export const VACATION_TYPE_COLOR_MAP = {
   연차: "#2E7D32", // 짙은 청록 녹색 (Deep Green)
   반차: "#66BB6A", // 밝은 그린 (Light Green)
-  "특별 휴가": "#A5D6A7", // 연한 민트계 그린 (Minty Green)
+  "일반 휴가": "#A5D6A7", // 연한 민트계 그린 (Minty Green)
 };
 export const GRAY_COLOR = "#D1D5DB";
 

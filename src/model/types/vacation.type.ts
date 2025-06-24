@@ -1,7 +1,7 @@
 import { TJobList, TSelectableJobName } from "./company.type";
 import { TUserBase } from "./user.type";
 
-export type TVacationType = "반차" | "연차" | "특별";
+export type TVacationType = "반차" | "연차" | "일반";
 export type TVacationStatus = "대기중" | "승인" | "거절" | "자동승인";
 
 // 휴가 요청 타입

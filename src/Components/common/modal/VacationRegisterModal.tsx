@@ -46,72 +46,85 @@ const VacationRegisterModal: React.FC<IVacationModalProps> = ({ onClose, onRegis
       onSubmit={handleRegister}
       submitLabel="등록"
     >
-      {/* 휴가 대상 */}
-      <div className="flex flex-col gap-2">
-        <span className="font-medium">휴가 대상</span>
-        <AutoCompleteUserInput
-          users={employeeList as EmployeeInfo[]}
-          onSelect={(emp: EmployeeInfo | null) => {
-            setSelectedEmployee(emp);
-            setInputValue(`${emp?.name} (${emp?.email})`);
-          }}
-        />
-      </div>
+      <div className="space-y-6">
+        {/* 휴가 대상 */}
+        <section className="space-y-2">
+          <label className="block text-sm font-medium text-gray-800 dark:text-white-text">
+            휴가 대상
+          </label>
+          <AutoCompleteUserInput
+            users={employeeList as EmployeeInfo[]}
+            onSelect={(emp: EmployeeInfo | null) => {
+              setSelectedEmployee(emp);
+              setInputValue(`${emp?.name} (${emp?.email})`);
+            }}
+          />
+        </section>
 
-      {/* 휴가 유형 */}
-      <div className="flex flex-col gap-2">
-        <span className="font-medium">휴가 유형</span>
-        <Select value={vacationType} onValueChange={setVacationType}>
-          <SelectTrigger className="w-full dark:text-white-text">
-            <SelectValue placeholder="휴가 유형 선택" />
-          </SelectTrigger>
-          <SelectContent className="dark:border dark:border-dark-border dark:bg-white-card-bg dark:text-white-text">
-            {VACATIONSELECT_TYPES.map(type => (
-              <SelectItem
-                key={type}
-                value={type}
-                className="dark:text-white-text dark:hover:bg-white-bg"
-              >
-                {type}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        {vacationType === "반차" && (
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            ※ 반차는 하루만 선택할 수 있으며, 오전/오후 선택은 별도 설정 없이 처리됩니다.
-          </p>
-        )}
-      </div>
+        {/* 휴가 유형 */}
+        <section className="space-y-2">
+          <label className="block text-sm font-medium text-gray-800 dark:text-white-text">
+            휴가 유형
+          </label>
+          <Select value={vacationType} onValueChange={setVacationType}>
+            <SelectTrigger className="w-full dark:text-white-text">
+              <SelectValue placeholder="휴가 유형 선택" />
+            </SelectTrigger>
+            <SelectContent className="dark:border dark:border-dark-border dark:bg-white-card-bg dark:text-white-text">
+              {VACATIONSELECT_TYPES.map(type => (
+                <SelectItem
+                  key={type}
+                  value={type}
+                  className="dark:text-white-text dark:hover:bg-white-bg"
+                >
+                  {type}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {vacationType === "반차" && (
+            <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+              ※ 반차는 하루만 선택할 수 있으며, 오전/오후 선택은 별도 설정 없이 처리됩니다.
+            </p>
+          )}
+        </section>
 
-      {/* 사용 기간 */}
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-3">
-          <span className="font-medium">사용 기간 :</span>
-          <div className="rounded-md border px-2 py-1 text-sm dark:border-dark-border dark:bg-white-bg">
-            {vacationDays > 0 ? `${vacationDays}일` : ""}
+        {/* 사용 기간 */}
+        <section className="space-y-2">
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-gray-800 dark:text-white-text">
+              사용 기간
+            </label>
+            {vacationDays > 0 && (
+              <div className="rounded-md border px-2 py-1 text-sm text-gray-700 dark:border-dark-border dark:bg-white-bg dark:text-white-text">
+                {vacationDays}일
+              </div>
+            )}
           </div>
-        </div>
-        <DateRangePicker
-          date={dateRange}
-          setDate={handleDateChange}
-          toDate={maxDate}
-          vacationType={vacationType}
-          handleDateChange={handleDateChange}
-        />
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          ※ 휴가 등록은 <strong>최대 3개월</strong> 이후까지만 가능합니다.
-        </p>
-      </div>
+          <DateRangePicker
+            date={dateRange}
+            setDate={handleDateChange}
+            toDate={maxDate}
+            vacationType={vacationType}
+            handleDateChange={handleDateChange}
+          />
+          <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+            ※ 휴가 등록은 <strong>최대 3개월</strong> 이후까지만 가능합니다.
+          </p>
+        </section>
 
-      {/* 사유 */}
-      <div className="flex flex-col gap-2">
-        <span>사유</span>
-        <textarea
-          className="h-20 w-full rounded-md border p-2 text-base"
-          value={reason}
-          onChange={e => setReason(e.target.value)}
-        />
+        {/* 사유 */}
+        <section className="space-y-2">
+          <label className="block text-sm font-medium text-gray-800 dark:text-white-text">
+            사유
+          </label>
+          <textarea
+            className="h-24 w-full resize-none rounded-md border border-gray-300 p-2 text-sm dark:border-dark-border dark:bg-white-bg dark:text-white-text"
+            value={reason}
+            onChange={e => setReason(e.target.value)}
+            placeholder="간단한 사유를 입력해주세요"
+          />
+        </section>
       </div>
     </RegisterModal>
   );

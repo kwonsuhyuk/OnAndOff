@@ -86,7 +86,7 @@ export const calculateVacationDaysByType = (requests: TVacationRequest[]) => {
       result.annual += duration;
     } else if (request.vacationType === "반차") {
       result.half += 0.5; // 반차는 보통 0.5일로 간주
-    } else if (request.vacationType === "특별") {
+    } else if (request.vacationType === "일반") {
       result.special += duration;
     }
 
@@ -103,4 +103,3 @@ export const getVacationDateRange = (start: string, end: string): string[] => {
   });
   return days.map(day => format(day, "yyyy-MM-dd"));
 };
-

@@ -63,10 +63,10 @@ export const useVacationPieChart = (
       const counts = {
         연차: flattened.filter(f => f.type === "연차").length,
         반차: flattened.filter(f => f.type === "반차").length,
-        특별: flattened.filter(f => f.type === "특별").length,
+        일반: flattened.filter(f => f.type === "일반").length,
       };
 
-      const total = counts["연차"] + counts["반차"] + counts["특별"];
+      const total = counts["연차"] + counts["반차"] + counts["일반"];
       setTotalDays(total);
 
       const allData: PieDataItem[] = [
@@ -81,9 +81,9 @@ export const useVacationPieChart = (
           color: VACATION_TYPE_COLOR_MAP["반차"],
         },
         {
-          name: "특별 휴가",
-          value: counts["특별"],
-          color: VACATION_TYPE_COLOR_MAP["특별 휴가"],
+          name: "일반",
+          value: counts["일반"],
+          color: VACATION_TYPE_COLOR_MAP["일반 휴가"],
         },
       ];
 

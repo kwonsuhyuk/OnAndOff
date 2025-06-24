@@ -82,8 +82,8 @@ const VacationChart = ({ selectedDate, selectedName, mode }: IVacationChartProps
             />
             <Bar
               dataKey="special"
-              fill={VACATION_TYPE_COLOR_MAP["특별 휴가"]}
-              name="특별 휴가"
+              fill={VACATION_TYPE_COLOR_MAP["일반 휴가"]}
+              name="일반 휴가"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>

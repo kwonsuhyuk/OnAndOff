@@ -7,7 +7,7 @@ import {
   useSidebar,
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
-import { ClipboardList, LogOut } from "lucide-react";
+import { ClipboardList, LogOut, StickyNote } from "lucide-react";
 
 import { useMenuBar } from "@/hooks/menu/useMenuBar";
 import ManagerMenuBarList from "./manager/ManagerMenuBarList";
@@ -34,6 +34,13 @@ export const ManagerMenuBar = () => {
       </SidebarContent>
 
       <SidebarFooter className="mt-auto space-y-3 border border-t border-solid p-4 dark:border-gray-800 dark:bg-dark-bg">
+        <SidebarMenuSubButton
+          href="/devnotes"
+          className="group flex w-full items-center gap-2 rounded-md border border-t border-solid border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition-colors duration-200 hover:bg-gray-100 dark:bg-transparent dark:text-white-text dark:hover:bg-dark-card-bg"
+        >
+          <StickyNote className="h-5 w-5 shrink-0 text-gray-500 dark:text-white-text" />
+          <span>서비스 업데이트 노트</span>
+        </SidebarMenuSubButton>
         <SidebarMenuSubButton
           href="https://forms.gle/D8ESME9mL8Myo8uJ7"
           target="_blank"
