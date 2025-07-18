@@ -51,7 +51,7 @@ const CommuteDetailModal = ({
     >
       {/* 외근 */}
       {isOutworking && (
-        <div className="rounded-2xl border border-solid border-yellow-300 bg-yellow-50 px-5 py-6 shadow-sm dark:border-yellow-400 dark:bg-yellow-900/30">
+        <div className="rounded-2xl border border-solid border-yellow-300 bg-yellow-50 px-4 py-6 shadow-sm dark:border-yellow-400 dark:bg-yellow-900/30">
           <div className="mb-4 flex items-center gap-2">
             <Briefcase className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
             <h4 className="text-sm font-semibold text-yellow-600 dark:text-yellow-400">
@@ -77,7 +77,7 @@ const CommuteDetailModal = ({
 
       {/* 휴가 */}
       {vacation && (
-        <div className="rounded-2xl border border-solid border-blue-200 bg-blue-50 px-5 py-6 text-sm shadow-sm dark:border-blue-400 dark:bg-blue-900/30">
+        <div className="rounded-2xl border border-solid border-blue-200 bg-blue-50 px-4 py-6 text-sm shadow-sm dark:border-blue-400 dark:bg-blue-900/30">
           <div className="space-y-6">
             {/* 휴가 정보 제목 */}
             <div className="space-y-2">
@@ -93,7 +93,9 @@ const CommuteDetailModal = ({
                 <div className="flex items-center gap-2">
                   <span className="text-gray-500 dark:text-gray-400">휴가 기간</span>
                   <span className="ml-auto font-medium text-gray-800 dark:text-white">
-                    {vacation.startDate} ~ {vacation.endDate}
+                    {vacation.startDate === vacation.endDate
+                      ? vacation.startDate
+                      : `${vacation.startDate} ~ ${vacation.endDate}`}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -116,7 +118,7 @@ const CommuteDetailModal = ({
 
       {/* 출근 정보 (외근 아니고 출근 기록이 있을 때) */}
       {commute?.startTime && !isOutworking && (
-        <div className="rounded-2xl border border-solid border-gray-200 bg-white px-5 py-6 shadow-sm dark:border-zinc-600 dark:bg-zinc-800">
+        <div className="rounded-2xl border border-solid border-gray-200 bg-white px-4 py-6 shadow-sm dark:border-zinc-600 dark:bg-zinc-800">
           <div className="space-y-6">
             {/* 출퇴근 시간 */}
             <div className="space-y-2">
