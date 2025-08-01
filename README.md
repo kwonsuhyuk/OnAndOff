@@ -99,10 +99,10 @@
   </tr>
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/35764155-8973-4252-bfe0-1dad85f80689" width="340" height="160" />
+      <img src="https://github.com/user-attachments/assets/35764155-8973-4252-bfe0-1dad85f80689" width="340" height="200" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/ca53fe44-bde3-4781-87ce-5617e5b12af4" width="340" height="160"/>
+      <img src="https://github.com/user-attachments/assets/ca53fe44-bde3-4781-87ce-5617e5b12af4" width="340" height="200"/>
     </td>
   </tr>
 </table>
@@ -135,34 +135,129 @@
 
 <br/>
 
-### [ 회사 설정 및 고유 QR,ID ]
+### [ 출퇴근 조회 기능 ]
 
-![Image](https://github.com/user-attachments/assets/453b1696-488e-41de-9ad4-4825cba3d9ac)
+<br/>
+1. 금일 출퇴근
 
-- 회사의 설정을 바꿀 수 있는 페이지 입니다.
+![Image](https://github.com/user-attachments/assets/6814df1f-d5d3-402f-96b3-6427beef8ff4)
 
-- 회사 마다 고유한 QR 코드 및 ID 를 제공합니다.
+- 금일 직원들의 출퇴근 정보를 근무지별로 시각화해 한눈에 확인할 수 있습니다.
+- 외근, 미출근, 휴가 인원도 함께 표시되어 전체 출근 분포를 직관적으로 파악할 수 있습니다.
+- 지난 날짜의 출퇴근 기록도 확인할 수 있으며, 근무지 별 인원 확인도 가능합니다.
+- 오류 발생 시 관리자가 직접 출퇴근을 수동으로 등록할 수 있습니다.
 
-- QR 을 통해 직원들의 출퇴근을 기록할 수 있는 기능 제공합니다.
+<br/>
+2. 외근 출근자 요청 승인
 
-- ID 를 통해서 직원이 회사에 가입시 회사를 검색할 수 있도록 도와줍니다.
+<table>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="https://github.com/user-attachments/assets/c5e5cfd1-e1a2-4c8b-8643-4ed0bbba4753" width="600" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/035f7ae1-18cf-48bd-ae28-364391c00804" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c1f97af3-0403-4c0b-b938-909a4367cbb3" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 관리자가 지정한 근무지가 아닌 장소에서 외근이 필요한 경우, 직원은 외근을 요청해야 하며, 관리자의 승인을 받은 후에 외근 등록이 완료됩니다.
+- 직원이 외근 요청을 등록시에 금일 출퇴근 페이지 외근 인원 영역 에 알림이 실시간으로 나타납니다.
+
+![Image](https://github.com/user-attachments/assets/c2a5d690-93b1-4f6d-a366-de9ae77083e5)
+
+- 해당 알림을 클릭 후에 직원의 정보와 외근시 입력한 상세한 메모를 확인후에 수락, 거절을 해주시면 됩니다.
+- 수락, 거절 후에는 실시간으로 직원에게 알림(서비스 안의 직원 알림 휴대폰으로 알림이 오지않고, 서비스안에서 알림이 옵니다.) 및 실시간으로 외근 처리가 되니
+  직원에게 따로 안내해 주지 않으셔도 됩니다.
+
+<br/>
+3. 기간 출퇴근
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/27279518-c19b-44fe-b9ea-09ac43d0c5aa" width="500" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/2326ae59-1fa0-4176-a403-bbd4280c529e" width="500" />
+    </td>
+  </tr>
+</table>
+
+- 월별 직원들의 출퇴근 정보를 전체 및 근무지별로 확인할 수 있으며, 특정 직원의 월간 현황도 확인할 수 있습니다.
+- 필터를 통해서 전체 및 근무지의 월간 현황을 한눈에 볼 수 있는 기능
+- 해당 날짜를 클릭시 금일 출퇴근 페이지로 이동해서 해당 날짜의 상세 정보를 확인할 수 있습니다.
+- 특정 직원의 월간 현황 한눈에 보는 기능
 
   <br/>
 
-### [ 직원 상세 조회 ]
+### [ 휴가 관련 기능 ]
 
-![Image](https://github.com/user-attachments/assets/ed6d9bb7-4df6-4344-bdb0-fabaeccd1408)
+![Image](https://github.com/user-attachments/assets/b7b62710-b0ce-4ded-9796-4ab33e4d98e5)
+![Image](https://github.com/user-attachments/assets/4eac673d-ed1e-43fe-8ba3-964e12437e03)
+![Image](https://github.com/user-attachments/assets/eceb8223-a95a-474c-9b56-159d1de38524)
 
-- 달력을 통해서 직원의 근무 시간 및 근무 상세 기록을 확인 할 수 있습니다.
-- 직원의 휴가 등록을 할 수 있습니다.
+- 직원들의 휴가 사용 통계 및 휴가 요청 승인 및 내역 확인에 관련된 기능을 사용할 수 있습니다.
+- 전체 휴가 현황 및 특정 직원, 유형별 휴가 현황 등 다양한 관점에서 휴가 시각화 하여 볼 수 있습니다.
+- 직원이 요청한 휴가를 처리 할 수 있으며, 직원의 휴가를 직접 등록 할 수 있는 기능도 있습니다.
 
 <br/>
 
-### [ 직원 정산 기능 ]
+### [ 회사 설정 기능 ]
 
-![Image](https://github.com/user-attachments/assets/9285d390-1fcc-4b4c-ab12-5ec1aed31f25)
+<br/>
+1. 기본 설정
 
-- 모달을 통해서 간편하게 기간에 직원이 근무한 시간과 급여를 정산할 수 있습니다.
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/501d49ae-783f-410d-85af-6d293fa99a15" width="250" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/e1f862ba-fd94-4efb-b569-21c20bf80469" width="250" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/76341259-62df-481b-bf4b-de724f1e724b" width="250" />
+    </td>
+  </tr>
+</table>
+
+- 회사의 다양한 설정을 진행할 수 있는 기능입니다. 꼭 저장 버튼을 눌러서 저장을 해주셔야 변경사항이 저장됩니다.
+- 회사 기본 설정 : 회사의 기본 설정에 관련된 정보를 수정 할 수있습니다.
+- 회사 직무 설정 : 직원들의 분류에 필요한 직무들을 추가, 삭제 할 수 있습니다.
+- 회사 야간/공휴일 및 급여 정산일 설정 : 회사의 정산에 필요한 정보들을 수정할 수 있습니다.
+
+<br/>
+2. 직원 관리 설정
+
+![Image](https://github.com/user-attachments/assets/2a03396c-a0c2-4698-846e-6eb446151e57)
+![Image](https://github.com/user-attachments/assets/f0a4f80c-09ce-4a14-bf93-706a9afd983d)
+
+- 회사에 등록된 직원들을 테이블로 볼 수 있고, 직원 정보를 수정 할 수 있습니다. 직원 클릭 후에 처음 직원이 가입할 때 설정한 직종, 고용형태, 급여(시급, 정산 기능에 사용할 급여) 등을 수정, 조회 할 수 있습니다.
+
+<br/>
+3. 근무지 설정
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6896fd3f-193b-41ef-a4af-66520dd9b7cb" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/343cd0b7-9d84-410e-9e1f-212b30e9e88c" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 직원들이 출퇴근 할 수 있는 근무지를 설정 및 수정을 할 수 있습니다.
+- 주소 검색을 통해 근무지의 위치, 이름, 설명, 반경 범위를 설정할 수 있습니다.
+- 서비스는 GPS기반으로 직원들이 근무지 주변에 출퇴근 시, 버튼만 누르면 출퇴근을 할 수 있도록 되어 있습니다.
+- 지도 상에서 커서를 직접 이동시켜 검색되지 않는 근무지도 수동으로 지정할 수 있습니다.
 
 <br/>
 
