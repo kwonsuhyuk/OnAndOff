@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1>Attendance App 📒</h1>
+<h1>On & Off ⏻</h1>
 
-![header](https://capsule-render.vercel.app/api?type=venom&color=auto&height=500&section=header&text=Attendance&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=venom&color=auto&height=500&section=header&text=OnOff&fontSize=90)
 
 ![Image](https://github.com/user-attachments/assets/d0c97d40-4c22-455f-9588-256d20b6cc68)
 
@@ -12,7 +12,7 @@
 
 </br>
 
-[✨ Attendance App URL] (https://britec-attd-app.web.app/)
+[✨ On & Off URL] (https://onoffatt.site/)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 # ⭐️ 프로젝트 소개
 
-회사에서 직원들의 출석을 관리하고 직원들의 급여 정산을 쉽게 할 수 있도록 도와주는 서비스입니다
+회사에서 직원들의 출석을 관리하고 직원들의 급여 정산을 쉽게 할 수 있도록 도와주는 서비스입니다.
 
 실제 지인 분화사에서 적용하기 위해서 요구사항을 받아서 제작한 프로젝트입니다.
 
@@ -33,10 +33,10 @@
 <div align="center"> 
   <img src="https://img.shields.io/badge/Typescript-5.7.3-3178C6?logo=typescript">  
   <img src="https://img.shields.io/badge/React-17.0.2-61DAFB?logo=react">  
-  <img src="https://img.shields.io/badge/Redux-4.2.1-764ABC?logo=redux">  
+  <img src="https://img.shields.io/badge/Zustand-5.0.5-602C3C?logo=zustand">  
   <img src="https://img.shields.io/badge/TailwindCSS-3.4.0-06B6D4?logo=tailwindcss">  
   <img src="https://img.shields.io/badge/Vite-5.0.8-646CFF?logo=vite">  
-  <img src="https://img.shields.io/badge/Material%20UI-5.15.3-007FFF?logo=mui">  
+  <img src="https://img.shields.io/badge/Shadcn%20UI-0.5.2-000000?logo=shadcn">  
   <img src="https://img.shields.io/badge/Firebase-10.7.1-FFCA28?logo=firebase">  
   <img src="https://img.shields.io/badge/React%20Router%20Dom-6.21.1-CA4245?logo=react-router">  
 </div>
@@ -47,30 +47,38 @@
 
 ### 1. 회사에 필요한 기능 직접 관리자 분께 피드백 받아 기능 추가 구현
 
-- 회사 관리자 분께 직접 회사 근태 관리에 필요한 기능들 피드백 받아서 구현함
+- 실제 공사 관련 회사를 운영 중인 지인 분께 피드백을 받아 회사의 근태 관리에 필요한 기능을 구현했습니다.
+- 초기에는 QR SCAN 방식을 사용했지만, **QR 코드 악용 가능성**과 **어르신 분들의 사용 불편**을 고려하여  
+  👉 **GPS 기반 출퇴근 방식으로 개선**하였습니다.
+- 위치 기반으로 출퇴근을 체크하며, 보다 간편하게 출퇴근을 등록할 수 있도록 개선하였습니다.
 
-- 결과적으로, 회사 QR SCAN 코드 보안화 및 , 어르신들이 QR 버튼이 작아 사용하기 힘들다는 의견을 받아
+  <table>
+    <tr>
+      <td>
+        <img src="https://github.com/user-attachments/assets/07f0476f-7f63-4f18-907a-528bb00f2c1d" width="300" />
+      </td>
+      <td>
+        <img src="https://github.com/user-attachments/assets/44b0955c-bd21-4b99-861b-cffdb191c50d" width="300" />
+      </td>
+    </tr>
+  </table>
 
-  html5-qr-scanner => qr-scanner 로 라이브러리 변경해 자동으로 QR 이 실행 되고 더욱 깔끔한 디자인을 제공해 드릴 수 있도록 했습니다.
+  - 어르신 분들이 IT 기기 사용에 익숙치 않아 사용하기 힘들어 하신다는 의견을 받아 상세한 AppGuide 페이지 제공 및 각 페이지 마다 React-Joyride 를 이용해서 상세한 사용법 제공해 드려 조금이나마 쉽게 사용하실 수 있도록 도와드리고자 노력했습니다.
 
-  ![Image](https://github.com/user-attachments/assets/887d5c46-8272-4124-804a-43cfe5914c14)
-
-  ![Image](https://github.com/user-attachments/assets/fb4f3617-d029-4294-8ffb-769fe4772548)
-
-  ​
-
-  - 어르신 분들이 IT 기기 사용에 익숙치 않아 사용하기 힘들어 하신다는 의견을 받아 상세한 AppGuide 페이지 제공 및 각 페이지 마다 React-Tour 를 이용해서 상세한 사용법 제공해 드려 조금이나마 쉽게 사용하실 수 있도록 도와드리고자 노력했습니다.
-
-    [Appguide Page 제공 및 React-Tour 제공](#appguide-page-제공-및-react-tour-제공)
+    [Appguide Page 제공 및 React-Joyride 제공](#appguide-page-제공-및-react-joyride-제공)
 
   - 또한 휴가 등록 및 외근 , 공휴일 야간 수당 구분 등 회사에 필요한 기능들 지속적으로 피드백받아서 구현중에 있습니다.
 
-  <br />
+  - App Guide 페이지를 통해 서비스 사용법을 상세히 안내했습니다.
+
+  - 기존에는 React-Tour를 활용했지만,  
+    👉 **더 유연하고 직관적인 경험을 위해 React-Joyride로 교체**하였습니다.
+
+    <br />
 
 ### 2. 사용자가 더욱 편하게 사용할 수 있고 유지보수 하기 쉬운 코드
 
 - 현재까지도 지속적으로 개선하고 있는 프로젝트 이고, 사용자가 더욱 편하게 사용하기 위해서 어떤 기능을 개선할 수 있을지 고민 하고 있는 프로젝트 입니다.
-- 유지보수를 하기 쉽게 하기 위해서 프로젝트를 Typescript 로 변경중에 있으며, 변경하기 쉬운 클린코드를 작성하기 위해서 지속적으로 리팩토링 하고 있습니다.
 - 이미지, 데이터를 가져오는데 조금 더 자연스럽고 깔끔하게 가져오기 위해서 lazy 로딩 및, tanstack-query 도입 예정에 있습니다.
 
 <br />
@@ -81,20 +89,49 @@
 
 ---
 
-### [ 상세한 회사 설정 ]
+### [ 홈 대시보드 ]
 
-![Image](https://github.com/user-attachments/assets/6d37b096-86c6-4495-acf3-53d3d849b760)
+<table>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="https://github.com/user-attachments/assets/fe27401c-3656-41c8-a62b-0425a3504fbd" width="700" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/35764155-8973-4252-bfe0-1dad85f80689" width="340" height="160" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ca53fe44-bde3-4781-87ce-5617e5b12af4" width="340" height="160"/>
+    </td>
+  </tr>
+</table>
 
-- 관리자분이 회사 페이지를 만들때 로고, 회사이름, 직책, 급여정산날짜, 주간, 야간 구분해 급여 지급할지 등등 여러 옵션들을 설정해서 회사 페이지를 좀 더 체계적으로 관리할 수 있도록 제공합니다.
+- 출퇴근 및 휴가, 구성원, 근무지 등 다양한 회사의 정보를 한 눈에 볼 수 있는 페이지
+
+- 회사의 다양한 근태 관련 정보를 한눈에 시각화 할 수 있고 상세 페이지로 이동하실 수 있습니다.
 
 <br/>
 
-### [ 직원 리스트 조회 및 관리 ]
+### [ 정산 기능 ]
 
-![Image](https://github.com/user-attachments/assets/93728a23-41f9-40b4-b09e-884c0259e240)
+![Image](https://github.com/user-attachments/assets/d130fc61-ccdf-486e-bffa-b7c94472c07e)
 
-- 회사에 등록되어 있는 직원 리스트를 한번에 볼 수 있고 직원 각각의 정보를 수정 및 상세보기, 정산 페이지로 이동 할 수 있습니다.
-- 지역을 골라 필터링해 특정 지역에 대한 관광지만을 볼 수 있습니다.
+- 관리자가 설정한 시급, 정산 기준일, 야간/공휴일 수당 배율 기준으로 직원의 월별 정산을 진행할 수 있습니다.
+- 직원 설정에서 시급으로 설정된 급여 기준으로 정산을 진행합니다. 급여 계산이 필요없으신 경우에는 수당 계산 포함하기를 체크하지 않고 진행하시면 됩니다.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/276742b3-99e2-401d-9de3-e9df7d39409a" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/f9321ea9-cbfc-469b-b568-794cc95e989e" width="300" height="310" />
+    </td>
+  </tr>
+</table>
+
+- 위의 조건을 기준으로 월별 데이터를 생성하여 최종적으로 엑셀파일로 다운로드까지 진행하여 관리할 수 있습니다.
 
 <br/>
 
@@ -171,7 +208,7 @@
 
 ---
 
-### [ Appguide Page 제공 및 React-Tour 제공 ]
+### [ Appguide Page 제공 및 React-Joyride 제공 ]
 
 ![Image](https://github.com/user-attachments/assets/15161dc4-7703-4a94-9333-262c002bbfe6)
 
@@ -200,5 +237,9 @@
 ## 😊 유제현 (FE)
 
 - 깃허브 : https://github.com/YOOJEHYEON
+
+## 👾 오민택 (FE)
+
+- 깃허브 : https://github.com/mintaek61
 
 <br />
