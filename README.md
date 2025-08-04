@@ -265,39 +265,102 @@
 
 ---
 
-### [직원 정보 및 이번달 근무 시간 확인]
+### [홈 대시보드]
 
-![Image](https://github.com/user-attachments/assets/6dffffe3-f9da-4a35-a836-ab70b87f0d23)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/e046989d-f530-4cb5-8ea7-ef98ceabd6d4" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/3a8daa69-306c-4cd3-ac86-6290a32bd636" width="300" />
+    </td>
+  </tr>
+</table>
 
-- 직원의 근무 형태 및 이번달 근무 시간 등 자신의 근태 기록을 한눈에 볼 수 있습니다.
-
-<br/>
-
-### [ 여행지 공유 및 QnA 커뮤니티 ]
-
-<div style="flex gap-5"> 
-  
-</div>
-
-![Image](https://github.com/user-attachments/assets/10aad7a8-9a28-49e8-8a9c-7d23ac351180)
-
-![Image](https://github.com/user-attachments/assets/a685bc68-388d-4d54-b424-624568a1445b)
-
-- 직원은 회사에서 제공하는 QR을 통해 출퇴근을 등록할 수 있습니다.
-- QR은 암호화 및 복호화 과정을 통해서 보안을 높였습니다.
+- 다양한 근태 관련 정보를 한눈에 시각화 할 수 있고 상세 페이지로 이동하실 수 있습니다.
 
 <br/>
 
-### [ 직원 근무기록 확인하기 ]
+### [ 홈 - 출퇴근 ]
 
-![Image](https://github.com/user-attachments/assets/e0eb73cb-b5e1-4b69-a9ff-083f27b5bd7b)
+<table>
+    <tr>
+      <td>
+        <img src="https://github.com/user-attachments/assets/07f0476f-7f63-4f18-907a-528bb00f2c1d" width="300" />
+      </td>
+      <td>
+        <img src="https://github.com/user-attachments/assets/44b0955c-bd21-4b99-861b-cffdb191c50d" width="300" />
+      </td>
+      <td>
+        <img src="https://github.com/user-attachments/assets/f1818f15-9eda-4fd8-9f2c-0f97408ee0cf" width="300" />
+      </td>
+    </tr>
+  </table>
 
-![Image](https://github.com/user-attachments/assets/e05b598b-d68b-4605-af48-6916aede487f)
-
-- 직원은 달력을 통해서 한눈에 자신의 근무 기록을 확인할 수 있습니다.
-- 또한 표를 통해서 근무시간 통계를 확인할 수 있습니다.
+- 위치 기반 출근 인증을 통해 설정된 근무지 반경 내에서만 출근이 가능합니다.
+- 대시보드에 있는 출퇴근 버튼을 누르면 근무하는 근무지를 선택 후, 확인 절차를 통해 등록됩니다.
+- 이후 대시보드를 출퇴근한 상태, 근무지 그리고 시간을 통해 상황을 확인할 수 있습니다.
 
 <br/>
+
+### [ 홈 - 외근 ]
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6bf43379-df78-4508-9663-1ec315364614" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ebc2fd3b-03a9-47b6-ad69-1f43414b2021" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 외근의 경우, 메모(사유)를 입력하여 등록 시, 관리자에게 외근 요청
+- 출근과는 별개로 위치에 관여하지 않고 외근 출근을 등록 할 수 있습니다.
+- 관리자의 승인이 처리되면 처리된 시간이 출근 시간으로 기록됩니다.
+
+<br/>
+
+### [ 출퇴근 기록 ]
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6193baee-1d0c-4263-8deb-8cbf72f56e59" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6734ec58-ae46-4437-aa59-a51cb9516e4b" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 월 단위로 근무 이력을 달력 형태로 쉽게 확인이 가능합니다.
+- 각 날짜를 클릭하면 출퇴근 시간, 근무지 정보, 외근/휴가 상태가 함께 표시됩니다.
+- 월 단위로 출근, 외근, 휴가의 총 일수를 집계하여 통계로 나타냅니다.
+
+### [ 휴가 ]
+
+<table>
+  <tr>
+    <td rowspan="2" align="center">
+      <img src="https://github.com/user-attachments/assets/11bf77de-9417-4738-a4db-031b82611bc2" width="300" height="643" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/5a7085fd-4308-4a5f-bedb-aa5fd362e1c9" width="300" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/1b3ffa0a-55a8-4896-bb7e-d1f2cb858581" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 사용한 휴가를 연도별로 집계하여 총 일수를 확인 할 수 있습니다.
+- 직원이 휴가를 유형, 기간, 사유를 입력하여 신청을 하면 실시간으로 관리자에게 전달되며 알림으로도 안내됩니다.
+- 처리된 휴가 내역들은 상태별로 확인이 가능하고 상세 내역 또한 확인이 가능합니다.
 
 ## 서비스 편의성 기능
 
@@ -305,11 +368,18 @@
 
 ### [ Appguide Page 제공 및 React-Joyride 제공 ]
 
-![Image](https://github.com/user-attachments/assets/15161dc4-7703-4a94-9333-262c002bbfe6)
+### [ 다운로드 가이드 및 출퇴근 가이드 제공 ]
 
-![Image](https://github.com/user-attachments/assets/7f22790f-3a7c-472b-b90c-cc5d6291f19c)
-
-![Image](https://github.com/user-attachments/assets/0a72f7c4-e6b7-488b-bca4-a1f012cc399d)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6193baee-1d0c-4263-8deb-8cbf72f56e59" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6734ec58-ae46-4437-aa59-a51cb9516e4b" width="300" />
+    </td>
+  </tr>
+</table>
 
 - 서비스 사용하시는 분들 특성상 IT 가 익숙하지 않은 분들이 많으셔서 App Guide 페이지를 따로 제공 하여 사용법을 자세히 설명 해드렸습니다.
 - React-Tour 를 사용해서 각 페이지마다 사용방법을 상세하게 안내해드렸습니다.
