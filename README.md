@@ -368,29 +368,57 @@
 
 ### [ Appguide Page 제공 및 React-Joyride 제공 ]
 
-### [ 다운로드 가이드 및 출퇴근 가이드 제공 ]
+1. 다운로드 가이드 및 출퇴근 가이드
 
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/6193baee-1d0c-4263-8deb-8cbf72f56e59" width="300" />
+      <img src="https://github.com/user-attachments/assets/6d3d2304-ed96-4743-9b06-a6ebd5e216e6" width="300" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/6734ec58-ae46-4437-aa59-a51cb9516e4b" width="300" />
+      <img src="https://github.com/user-attachments/assets/eee94fe0-c8f2-42f0-ac0d-cad50554a650" width="300" />
     </td>
   </tr>
 </table>
 
-- 서비스 사용하시는 분들 특성상 IT 가 익숙하지 않은 분들이 많으셔서 App Guide 페이지를 따로 제공 하여 사용법을 자세히 설명 해드렸습니다.
-- React-Tour 를 사용해서 각 페이지마다 사용방법을 상세하게 안내해드렸습니다.
+- 서비스 사용하시는 분들 특성상 IT 가 익숙하지 않은 분들이 많으셔서 다운로드 가이드와 출퇴근 가이드 페이지를 따로 제공 하여 사용법을 자세히 설명 해드렸습니다.
+
+<br/>
+2. React-Joyride
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/745d2daf-e9f4-4b8d-be1a-519e0b8831c0" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/0fd77012-79ad-4d21-ba52-97afc34a29ac" width="300" />
+    </td>
+  </tr>
+</table>
+
+- 저희 서비스를 이용하는데 불편함을 줄이기 위해 React-Joyride 를 사용하여 상세한 안내 가이드를 제공하고 있습니다.
+- 서비스를 처음 이용시 자동으로 각 페이지 상세 가이드를 제공합니다.
+- 다시 보고 싶을 때는 (모바일 기준) 상단에 있는 물음표 버튼을 클릭하면 동일하게 가이드가 나옵니다.
 
 <br />
 
 ### [ DarkMode 지원 ]
 
-![Image](https://github.com/user-attachments/assets/b18db41b-ebe1-4afe-9f1d-715f5c9462d5)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/07a3a0ad-7b64-42de-b48e-6003594f9c09" width="300" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ca2b17b0-610f-4257-b895-79d3745b9852" width="300" />
+    </td>
+  </tr>
+</table>
 
 - Tailwind DarkMode 를 사용하여 DarkMode 또한 지원해드렸습니다.
+
+<br/><br/>
 
 # 🏃‍♂️ 팀원 소개
 
