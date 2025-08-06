@@ -4,7 +4,7 @@
 
 ![header](https://capsule-render.vercel.app/api?type=venom&color=auto&height=500&section=header&text=OnOff&fontSize=90)
 
-![Image](https://github.com/user-attachments/assets/d0c97d40-4c22-455f-9588-256d20b6cc68)
+![Image](https://github.com/user-attachments/assets/8f27ef3d-fb2e-4c3b-bee7-fe262a32e297)
 
 ## <div align="center">직원들의 근태관리를 쉽게 도와주는 서비스</div>
 
@@ -123,10 +123,10 @@
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/276742b3-99e2-401d-9de3-e9df7d39409a" width="300" />
+      <img src="https://github.com/user-attachments/assets/276742b3-99e2-401d-9de3-e9df7d39409a" width="300" height="330" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/f9321ea9-cbfc-469b-b568-794cc95e989e" width="300" height="310" />
+      <img src="https://github.com/user-attachments/assets/f9321ea9-cbfc-469b-b568-794cc95e989e" width="300" height="330" />
     </td>
   </tr>
 </table>
@@ -160,7 +160,7 @@
     <td align="center">
       <img src="https://github.com/user-attachments/assets/035f7ae1-18cf-48bd-ae28-364391c00804" width="300" />
     </td>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/c1f97af3-0403-4c0b-b938-909a4367cbb3" width="300" />
     </td>
   </tr>
@@ -215,10 +215,10 @@
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/501d49ae-783f-410d-85af-6d293fa99a15" width="250" />
     </td>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/e1f862ba-fd94-4efb-b569-21c20bf80469" width="250" />
     </td>
     <td align="center">
@@ -245,7 +245,7 @@
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/6896fd3f-193b-41ef-a4af-66520dd9b7cb" width="300" />
     </td>
     <td align="center">
@@ -308,7 +308,7 @@
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/6bf43379-df78-4508-9663-1ec315364614" width="300" />
     </td>
     <td align="center">
@@ -330,7 +330,7 @@
     <td align="center">
       <img src="https://github.com/user-attachments/assets/6193baee-1d0c-4263-8deb-8cbf72f56e59" width="300" />
     </td>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="https://github.com/user-attachments/assets/6734ec58-ae46-4437-aa59-a51cb9516e4b" width="300" />
     </td>
   </tr>
