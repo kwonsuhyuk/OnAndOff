@@ -26,6 +26,8 @@
 
 더 좋은 기능을 제공해드리기 위해서 지속적으로 리팩토링 하고 있습니다.
 
+> `codex/fullstack-migration` 브랜치에서는 Firebase 백엔드를 NestJS와 PostgreSQL로 전환하고 있습니다. 백엔드 설계와 실행 방법은 [`backend/README.md`](backend/README.md)에서 확인할 수 있습니다.
+
 <br />
 
 # ⚒️ 기술 스택

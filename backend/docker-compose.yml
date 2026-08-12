@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: onoff-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: onoff
+      POSTGRES_PASSWORD: onoff
+      POSTGRES_DB: onoff
+    ports:
+      - "5432:5432"
+    volumes:
+      - onoff_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U onoff -d onoff"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  onoff_postgres_data:

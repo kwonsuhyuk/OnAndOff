@@ -1,0 +1,235 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MemberRole {
+  OWNER
+  MANAGER
+  EMPLOYEE
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACTOR
+  OTHER
+}
+
+enum SalaryType {
+  HOURLY
+  MONTHLY
+  NONE
+}
+
+enum AttendanceStatus {
+  WORKING
+  COMPLETED
+  OUTWORK_PENDING
+  OUTWORK
+  CORRECTED
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum VacationType {
+  ANNUAL
+  HALF_DAY
+  GENERAL
+}
+
+model User {
+  id           String          @id @default(uuid()) @db.Uuid
+  email        String          @unique
+  passwordHash String
+  name         String
+  phoneNumber  String?
+  isActive     Boolean         @default(true)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  memberships  CompanyMember[]
+}
+
+model Company {
+  id                String            @id @default(uuid()) @db.Uuid
+  code              String            @unique
+  name              String
+  introduction      String?
+  logoUrl           String?
+  timezone          String            @default("Asia/Seoul")
+  payrollClosingDay Int               @default(1)
+  nightPayRate      Decimal           @default(1.0) @db.Decimal(5, 2)
+  holidayPayRate    Decimal           @default(1.0) @db.Decimal(5, 2)
+  nightStartMinute  Int?
+  nightEndMinute    Int?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  members           CompanyMember[]
+  positions         Position[]
+  workplaces        Workplace[]
+  attendanceRecords AttendanceRecord[]
+  vacationRequests  VacationRequest[]
+  outworkRequests   OutworkRequest[]
+  holidays          CompanyHoliday[]
+  notices           Notice[]
+  notifications     Notification[]
+}
+
+model CompanyMember {
+  id             String           @id @default(uuid()) @db.Uuid
+  companyId      String           @db.Uuid
+  userId         String           @db.Uuid
+  positionId     String?          @db.Uuid
+  role           MemberRole       @default(EMPLOYEE)
+  employmentType EmploymentType?
+  salaryType     SalaryType       @default(NONE)
+  salaryAmount   Decimal?         @db.Decimal(14, 2)
+  joinedAt       DateTime         @default(now())
+  leftAt         DateTime?
+  company        Company          @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  position       Position?        @relation(fields: [positionId], references: [id], onDelete: SetNull)
+  attendance     AttendanceRecord[]
+  vacations      VacationRequest[]
+  outwork        OutworkRequest[]
+  notifications  Notification[]
+
+  @@unique([companyId, userId])
+  @@index([userId])
+}
+
+model Position {
+  id        String          @id @default(uuid()) @db.Uuid
+  companyId String          @db.Uuid
+  name      String
+  company   Company         @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  members   CompanyMember[]
+
+  @@unique([companyId, name])
+}
+
+model Workplace {
+  id        String   @id @default(uuid()) @db.Uuid
+  companyId String   @db.Uuid
+  name      String
+  address   String
+  memo      String?
+  latitude  Decimal  @db.Decimal(10, 7)
+  longitude Decimal  @db.Decimal(10, 7)
+  radiusM   Int      @default(100)
+  isActive  Boolean  @default(true)
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  checkIns  AttendanceRecord[] @relation("CheckInWorkplace")
+  checkOuts AttendanceRecord[] @relation("CheckOutWorkplace")
+}
+
+model AttendanceRecord {
+  id                 String           @id @default(uuid()) @db.Uuid
+  companyId          String           @db.Uuid
+  memberId           String           @db.Uuid
+  workDate            DateTime         @db.Date
+  status              AttendanceStatus @default(WORKING)
+  checkInAt           DateTime?
+  checkOutAt          DateTime?
+  checkInWorkplaceId  String?          @db.Uuid
+  checkOutWorkplaceId String?          @db.Uuid
+  checkInLatitude     Decimal?         @db.Decimal(10, 7)
+  checkInLongitude    Decimal?         @db.Decimal(10, 7)
+  checkOutLatitude    Decimal?         @db.Decimal(10, 7)
+  checkOutLongitude   Decimal?         @db.Decimal(10, 7)
+  correctedReason     String?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  company             Company          @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  member              CompanyMember    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  checkInWorkplace    Workplace?        @relation("CheckInWorkplace", fields: [checkInWorkplaceId], references: [id])
+  checkOutWorkplace   Workplace?        @relation("CheckOutWorkplace", fields: [checkOutWorkplaceId], references: [id])
+
+  @@unique([memberId, workDate])
+  @@index([companyId, workDate])
+}
+
+model VacationRequest {
+  id          String        @id @default(uuid()) @db.Uuid
+  companyId   String        @db.Uuid
+  memberId    String        @db.Uuid
+  type        VacationType
+  startDate   DateTime      @db.Date
+  endDate     DateTime      @db.Date
+  reason      String
+  status      RequestStatus @default(PENDING)
+  processedAt DateTime?
+  processedBy String?       @db.Uuid
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  company     Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  member      CompanyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, status, startDate])
+}
+
+model OutworkRequest {
+  id          String        @id @default(uuid()) @db.Uuid
+  companyId   String        @db.Uuid
+  memberId    String        @db.Uuid
+  requestedAt DateTime      @default(now())
+  isCheckout  Boolean       @default(false)
+  memo        String
+  latitude    Decimal?      @db.Decimal(10, 7)
+  longitude   Decimal?      @db.Decimal(10, 7)
+  status      RequestStatus @default(PENDING)
+  processedAt DateTime?
+  processedBy String?       @db.Uuid
+  company     Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  member      CompanyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, status, requestedAt])
+}
+
+model CompanyHoliday {
+  id        String   @id @default(uuid()) @db.Uuid
+  companyId String   @db.Uuid
+  date      DateTime @db.Date
+  name      String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, date])
+}
+
+model Notice {
+  id        String   @id @default(uuid()) @db.Uuid
+  companyId String   @db.Uuid
+  authorId  String   @db.Uuid
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, createdAt])
+}
+
+model Notification {
+  id        String        @id @default(uuid()) @db.Uuid
+  companyId String        @db.Uuid
+  memberId  String        @db.Uuid
+  type      String
+  title     String
+  message   String
+  data      Json?
+  readAt    DateTime?
+  createdAt DateTime      @default(now())
+  company   Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  member    CompanyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@index([memberId, readAt, createdAt])
+}
