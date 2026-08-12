@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useUserStore } from "@/store/user.store";
-import { useCompanyStore } from "@/store/company.store";
 import { login } from "@/api/auth.api";
 import { z } from "zod";
 import { loginFormSchema } from "@/model/schema/authSchema/login.schema";
 
 export const useLogin = () => {
+  const setUser = useUserStore(state => state.setUser);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,35 +30,18 @@ export const useLogin = () => {
         setError("이메일 또는 비밀번호가 올바르지 않습니다");
         return;
       }
+      setUser(response.data.user);
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldName = error.errors[0].path[0];
         if (fieldName === "email") {
           setError("이메일 형식이 올바르지 않습니다");
         } else if (fieldName === "password") {
-          setError("비밀번호는 6자 이상이어야 합니다");
+          setError("비밀번호는 10자 이상이어야 합니다");
         }
       } else {
         setError("로그인 중 오류가 발생했습니다");
       }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleGuestLogin = async (email: string, password: string) => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const response = await login({ email, password });
-
-      if (!response.success) {
-        setError("게스트 로그인 실패");
-        return;
-      }
-    } catch (error) {
-      setError("게스트 로그인 중 오류가 발생했습니다");
     } finally {
       setIsLoading(false);
     }
@@ -76,6 +59,5 @@ export const useLogin = () => {
     emailRef,
     passwordRef,
     handleSubmit,
-    handleGuestLogin,
   };
 };

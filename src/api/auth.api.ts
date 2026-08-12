@@ -1,10 +1,3 @@
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "@/firebase/index";
-import { TLoginResponse, TSignupResponse } from "@/model/types/api.type";
 import { TLoginForm } from "@/model/types/authTypes/login.type";
 import { TSignupFormData } from "@/model/types/authTypes/signup.type";
 import { getData, setData } from ".";
@@ -14,15 +7,61 @@ import { TCMUserData, TEmpUserData } from "@/model/types/user.type";
 import { getCompanyPath, getUserPath } from "@/constants/api.path";
 import { companyFormSchema } from "@/model/schema/managerFirstSchema/managerFirst.schema";
 import { z } from "zod";
+import { apiRequest, tokenStorage } from "./http.api";
 
-export async function login({ email, password }: TLoginForm): Promise<TLoginResponse> {
+type ApiAuthUser = {
+  id: string;
+  email: string;
+  name: string;
+  phoneNumber: string;
+  companyCode: string;
+  companyName: string;
+  userType: "manager" | "employee";
+  jobName?: string;
+  employmentType?: TEmpUserData["employmentType"];
+  salaryType?: string;
+  salaryAmount?: number;
+};
+
+type AuthResponse = {
+  user: ApiAuthUser;
+  accessToken: string;
+  tokenType: "Bearer";
+  expiresIn: string;
+};
+
+export const mapApiUser = (user: ApiAuthUser): TEmpUserData | TCMUserData => {
+  const base = {
+    uid: user.id,
+    name: user.name,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
+    companyCode: user.companyCode,
+  };
+  return user.userType === "manager"
+    ? { ...base, userType: "manager" }
+    : ({
+        ...base,
+        userType: "employee",
+        jobName: user.jobName ?? "",
+        employmentType: user.employmentType,
+        salaryType: user.salaryType,
+        salaryAmount: user.salaryAmount,
+      } as TEmpUserData);
+};
+
+export async function login({ email, password }: TLoginForm) {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    return { success: true };
-  } catch (error: any) {
+    const response = await apiRequest<AuthResponse>("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    });
+    tokenStorage.set(response.accessToken);
+    return { success: true as const, data: { user: mapApiUser(response.user) } };
+  } catch (error) {
     return {
-      success: false,
-      error: error.message,
+      success: false as const,
+      error: error instanceof Error ? error.message : "로그인 실패",
     };
   }
 }
@@ -32,37 +71,49 @@ export async function signup({
   password,
   name,
   companyCode,
-}: TSignupFormData): Promise<TSignupResponse> {
+  phoneNumber,
+  position,
+}: TSignupFormData) {
   try {
-    const { user } = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(user, {
-      displayName: name,
-      photoURL: companyCode,
+    const response = await apiRequest<AuthResponse>("/auth/register", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        name,
+        companyCode,
+        phoneNumber,
+        position,
+      }),
     });
+    tokenStorage.set(response.accessToken);
+    return { success: true as const, data: { user: mapApiUser(response.user) } };
+  } catch (error) {
     return {
-      success: true,
-      data: { userId: user.uid },
-    };
-  } catch (error: any) {
-    return {
-      success: false,
-      error: error.message,
+      success: false as const,
+      error: error instanceof Error ? error.message : "회원가입 실패",
     };
   }
 }
 
 export async function validateCompanyCode(code: string) {
   try {
-    const companyCodeData = await getData(getCompanyPath(code));
-
-    if (companyCodeData?.companyInfo?.companyName) {
-      return { isValid: true, companyName: companyCodeData.companyInfo.companyName };
-    }
-
-    return { isValid: false, error: "일치하는 회사가 없습니다." };
-  } catch (error: any) {
-    return { isValid: false, error: error.message };
+    const company = await apiRequest<{ companyName: string }>(
+      `/auth/companies/${encodeURIComponent(code)}`,
+    );
+    return { isValid: true, companyName: company.companyName };
+  } catch (error) {
+    return { isValid: false, error: error instanceof Error ? error.message : "회사 확인 실패" };
   }
+}
+
+export async function getCurrentUser() {
+  const user = await apiRequest<ApiAuthUser>("/auth/me");
+  return mapApiUser(user);
+}
+
+export function logout() {
+  tokenStorage.clear();
 }
 
 export async function setEmployeeUser({

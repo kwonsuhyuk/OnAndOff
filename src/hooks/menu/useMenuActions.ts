@@ -1,17 +1,20 @@
 import useDarkMode from "@/store/darkmode.store";
-import { getAuth, signOut } from "firebase/auth";
+import { logout as clearAuthSession } from "@/api/auth.api";
+import { useUserStore } from "@/store/user.store";
 import { useNavigate } from "react-router-dom";
 import { useShallow } from "zustand/shallow";
 
 export const useMenuActions = () => {
   const navigate = useNavigate();
+  const clearUser = useUserStore(state => state.clearUser);
 
   const refreshPage = () => {
     window.location.reload();
   };
 
   const logout = async () => {
-    await signOut(getAuth());
+    clearAuthSession();
+    clearUser();
     navigate("/");
   };
 

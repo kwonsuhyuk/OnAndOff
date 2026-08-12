@@ -7,16 +7,12 @@ import { signupFormSchema } from "@/model/schema/authSchema/signup.schema";
 import { signup, validateCompanyCode } from "@/api/auth.api";
 import { TSignupFormData } from "@/model/types/authTypes/signup.type";
 import { TPosition } from "@/model/types/position.type";
-import { TEmpUserData, TCMUserData } from "@/model/types/user.type";
 import { z } from "zod";
-import { useCompanyStore } from "@/store/company.store";
 import { nanoid } from "nanoid";
-import { getCompanyInfo } from "@/api";
 
 export const useSignup = () => {
   const navigate = useNavigate();
   const setUser = useUserStore(state => state.setUser);
-  const setCompany = useCompanyStore(state => state.setCompany);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -104,46 +100,8 @@ export const useSignup = () => {
         throw new Error(result.error || "회원가입에 실패했습니다.");
       }
 
-      const signupData = {
-        id: result.data.userId,
-        name: formData.name,
-        companyCode,
-        phoneNumber: formData.phoneNumber,
-      };
-
-      // 🔥 userType에 따라 다른 타입 적용
-      let userData: TEmpUserData | TCMUserData;
-
-      if (position === "manager") {
-        userData = {
-          uid: signupData.id,
-          name: signupData.name,
-          email: formData.email,
-          companyCode: signupData.companyCode,
-          phoneNumber: signupData.phoneNumber,
-          userType: "manager",
-        } as TCMUserData;
-      } else {
-        userData = {
-          uid: signupData.id,
-          name: signupData.name,
-          email: formData.email,
-          companyCode: signupData.companyCode,
-          phoneNumber: signupData.phoneNumber,
-          jobName: "",
-          salaryAmount: 0,
-          salaryType: "",
-          userType: "employee",
-          // date: undefined,
-          // workDates: undefined,
-        } as TEmpUserData;
-      }
-
-      const companyData = await getCompanyInfo(signupData.companyCode!);
-
-      await Promise.all([setUser(userData), setCompany(companyData)]);
-
       navigate(position === "manager" ? "/managerfirst" : "/employeefirst");
+      setUser(result.data.user);
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldName = error.errors[0].path[0];

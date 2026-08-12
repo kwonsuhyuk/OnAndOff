@@ -31,7 +31,7 @@ npm run start:dev
 
 ## 전환 순서
 
-1. 인증 및 회사 멤버십/RBAC
+1. ✅ 인증 및 회사 멤버십 기반 연결
 2. 회사·직무·근무지 관리
 3. GPS 출퇴근과 서버 측 반경 검증
 4. 외근·휴가 요청 및 트랜잭션 승인
@@ -39,3 +39,5 @@ npm run start:dev
 6. 알림과 기존 Firebase 데이터 마이그레이션
 
 Firebase 제거는 마지막에 진행합니다. 전환 중에는 React의 API 모듈 단위로 Firebase 구현과 REST 구현을 교체합니다.
+
+현재 React의 회원가입, 로그인, 세션 복원, 로그아웃은 이 API와 PostgreSQL을 사용합니다. 회사 설정과 근태 기능은 다음 단계 전환 전까지 Firebase를 사용합니다.

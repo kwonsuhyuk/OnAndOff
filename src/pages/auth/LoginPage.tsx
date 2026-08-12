@@ -4,12 +4,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import AuthHeader from "@/components/auth/AuthHeader";
 import AuthFooter from "@/components/auth/AuthFooter";
 import LoginForm from "@/components/auth/LoginForm";
-import AuthTestLoginBtn from "@/components/auth/AuthTestLoginBtn";
 import { useLogin } from "@/hooks/auth/useLogin";
 import Seo from "@/components/Seo";
 
 const LoginPage = () => {
-  const { error, isLoading, emailRef, passwordRef, handleSubmit, handleGuestLogin } = useLogin();
+  const { error, isLoading, emailRef, passwordRef, handleSubmit } = useLogin();
 
   return (
     <>
@@ -26,7 +25,6 @@ const LoginPage = () => {
                   <AlertDescription>{error}</AlertDescription>
                 </Alert>
               )}
-              <AuthTestLoginBtn handleGuestLogin={handleGuestLogin} loading={isLoading} />
               <AuthFooter
                 buttonText="로그인"
                 linkText="계정이 없나요? 회원가입으로 이동"
